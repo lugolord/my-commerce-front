@@ -10,10 +10,12 @@ import { ShoppingCart } from 'lucide-react'
 import { Button } from '../ui/button'
 import { useCategories } from '@/hooks/useCategories'
 import { useNavigate } from 'react-router'
+import { useCart } from '@/hooks/useCart'
 
 function Navbar () {
   const categories = useCategories()
   const navigate = useNavigate()
+  const { cart } = useCart()
 
   return (
     <header className='flex items-center justify-around border-b-1 p-2 sticky top-0 z-20 bg-white'>
@@ -38,7 +40,7 @@ function Navbar () {
           </NavigationMenuItem>
           <NavigationMenuItem>login</NavigationMenuItem>
           <NavigationMenuItem>
-            <Button variant='outline' onClick={() => navigate('/cart')}>cart <ShoppingCart /> 0</Button>
+            <Button variant='outline' onClick={() => navigate('/cart')}>cart <ShoppingCart /> {cart.length}</Button>
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
