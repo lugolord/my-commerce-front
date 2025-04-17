@@ -23,8 +23,17 @@ function ProductsContainer  () {
     }
   }, [skip, category])
 
-  const handleNext = () => setSearchParams({ limit: '10',  skip: `${parseInt(skip) + 10}`})
-  const handlePrev = () => setSearchParams({ limit: '10',  skip: `${parseInt(skip) - 10}`})
+  const scrollTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
+
+  const handleNext = () => {
+    scrollTop()
+    setSearchParams({ limit: '10',  skip: `${parseInt(skip) + 10}`})
+  }
+  
+  const handlePrev = () => {
+    scrollTop()
+    setSearchParams({ limit: '10',  skip: `${parseInt(skip) - 10}`})
+  }
 
   return (
     <>
