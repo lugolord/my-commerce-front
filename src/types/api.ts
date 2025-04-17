@@ -8,4 +8,5 @@ export type Product = {
   brand: string
   images: string[]
   stock: number
+  quantity: number
 }

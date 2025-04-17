@@ -1,14 +1,23 @@
 import { Button } from '../ui/button'
 import { Product } from '@/types/api'
 import { toast } from 'sonner'
+import { useCart } from '@/hooks/useCart'
 import ProducDetailCarousel from './ProductDetailCarousel'
 
 function ProductDetail ({ product } : { product: Product }) {
+  const { addProduct, isInCart } = useCart()
+
   const handleAdd = () => {
-    toast(product.title, {
-      description: "Se ha agregado al carrito",
-      richColors: true
-    })
+    if (isInCart(product.id)) {
+      alert('el producto ya esta en el carrito, puedes aumentar la cantida yendo a tu carrito')
+    } else {
+      toast(product.title, {
+        description: "Se ha agregado al carrito",
+        richColors: true
+      })
+  
+      addProduct(product)
+    }
   }
 
   return (
