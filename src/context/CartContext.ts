@@ -5,7 +5,7 @@ type CartContextType = {
   cart: Product[]
   addProduct: (product: Product) => void
   isInCart: (id: number) => boolean
-  increaseQuantity: (id: number) => void
+  handleQuantity: (id: number, type: 'increment' | 'decrement') => void
 }
 
 export const CartContext = createContext<CartContextType | null>(null)
