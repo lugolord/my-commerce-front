@@ -9,6 +9,8 @@ function CartProvider ({ children } : { children: React.ReactNode }) {
 
   const addProduct = (product: Product) => setCart([...cart, product])
 
+  const removeFromCart = (id: number) => setCart((prev) => prev.filter(prod => prod.id !== id)) 
+
   const handleQuantity = (id: number, type: 'increment' | 'decrement') => {
     const action = type === 'increment' ? 1 : -1
   
@@ -25,7 +27,7 @@ function CartProvider ({ children } : { children: React.ReactNode }) {
   }
   
   return (
-    <CartContext.Provider value={{ cart, addProduct, isInCart, handleQuantity }}>
+    <CartContext.Provider value={{ cart, addProduct, isInCart, handleQuantity, removeFromCart }}>
       {children}
     </CartContext.Provider>
   )

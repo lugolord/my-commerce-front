@@ -5,7 +5,7 @@ import { Product } from '@/types/api'
 import { useCart } from '@/hooks/useCart'
 
 function CartItem ({ prod } : { prod: Product }) {
-  const { handleQuantity } = useCart()
+  const { handleQuantity, removeFromCart } = useCart()
 
   return (
     <>
@@ -28,6 +28,7 @@ function CartItem ({ prod } : { prod: Product }) {
         <Button 
           className='flex-1' 
           variant='destructive'
+          onClick={() => removeFromCart(prod.id)}
         >
           <CircleX />
         </Button>
