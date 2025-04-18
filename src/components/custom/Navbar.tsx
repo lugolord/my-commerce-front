@@ -6,16 +6,13 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger
 } from "@/components/ui/navigation-menu"
-import { ShoppingCart } from 'lucide-react'
-import { Button } from '../ui/button'
 import { useCategories } from '@/hooks/useCategories'
 import { useNavigate } from 'react-router'
-import { useCart } from '@/hooks/useCart'
+import CartWidget from './CartWidget'
 
 function Navbar () {
   const categories = useCategories()
   const navigate = useNavigate()
-  const { cart } = useCart()
 
   return (
     <header className='flex items-center justify-around border-b-1 p-2 sticky top-0 z-20 bg-white'>
@@ -39,9 +36,7 @@ function Navbar () {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>login</NavigationMenuItem>
-          <NavigationMenuItem>
-            <Button variant='outline' onClick={() => navigate('/cart')}>cart <ShoppingCart /> {cart.length}</Button>
-          </NavigationMenuItem>
+          <CartWidget />
         </NavigationMenuList>
       </NavigationMenu>
     </header>

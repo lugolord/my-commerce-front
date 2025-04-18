@@ -9,6 +9,7 @@ type CartContextType = {
   removeFromCart: (id: number) => void
   calculateSubtotal: () => number
   calculateTotal: () => number
+  calculateCartQuantity: () => number
 }
 
 export const CartContext = createContext<CartContextType | null>(null)

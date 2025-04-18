@@ -37,6 +37,8 @@ function CartProvider ({ children } : { children: React.ReactNode }) {
     return total
   }
 
+  const calculateCartQuantity = () => cart.reduce((total, item) => total + item.quantity, 0)
+
   const value = {
     cart,
     addProduct,
@@ -44,7 +46,8 @@ function CartProvider ({ children } : { children: React.ReactNode }) {
     handleQuantity,
     removeFromCart,
     calculateSubtotal,
-    calculateTotal
+    calculateTotal,
+    calculateCartQuantity
   }
   
   return (
