@@ -1,13 +1,13 @@
-import { Button } from '../ui/button'
 import { Product } from '@/types/api'
 import { toast } from 'sonner'
 import { useCart } from '@/hooks/useCart'
 import ProducDetailCarousel from './ProductDetailCarousel'
+import ProductDetailCounter from './ProductDetailCounter'
 
 function ProductDetail ({ product } : { product: Product }) {
   const { addProduct, isInCart } = useCart()
 
-  const handleAdd = () => {
+  const handleAdd = (q: number) => {
     if (isInCart(product.id)) {
       alert('el producto ya esta en el carrito, puedes aumentar la cantida yendo a tu carrito')
     } else {
@@ -16,7 +16,7 @@ function ProductDetail ({ product } : { product: Product }) {
         richColors: true
       })
   
-      addProduct(product)
+      addProduct({ ...product, quantity: q })
     }
   }
 
@@ -30,15 +30,7 @@ function ProductDetail ({ product } : { product: Product }) {
           <p>{product?.stock ? 'In stock 🟢' : 'No stock 🔴'}</p>
         </div>
         <p>{product?.description}</p>
-        <div className='flex flex-col'>
-          <input 
-            type="number" 
-            className='border p-1 mb-2 rounded text-center' 
-            defaultValue={1}
-            min={1}
-          />
-          <Button onClick={handleAdd}>add to cart</Button>
-        </div>
+        <ProductDetailCounter handleAdd={handleAdd} />
       </div>
     </div>
   )
