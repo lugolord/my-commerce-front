@@ -7,6 +7,8 @@ type CartContextType = {
   isInCart: (id: number) => boolean
   handleQuantity: (id: number, type: 'increment' | 'decrement') => void
   removeFromCart: (id: number) => void
+  calculateSubtotal: () => number
+  calculateTotal: () => number
 }
 
 export const CartContext = createContext<CartContextType | null>(null)
