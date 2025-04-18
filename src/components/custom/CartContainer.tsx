@@ -1,9 +1,15 @@
 import { Button } from '../ui/button'
 import { useCart } from '@/hooks/useCart'
 import CartList from './CartList'
+import EmptyCart from './EmptyCart'
 
 function CartContainer () {
   const { cart } = useCart()
+  const isEmpty = cart.length === 0
+
+  if (isEmpty) {
+    return <EmptyCart />
+  }
 
   return (
     <div className='h-screen flex items-center justify-center gap-3'>
