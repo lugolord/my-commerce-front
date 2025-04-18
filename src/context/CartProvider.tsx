@@ -10,32 +10,20 @@ function CartProvider ({ children } : { children: React.ReactNode }) {
   const addProduct = (product: Product) => setCart([...cart, product])
 
   const handleQuantity = (id: number, type: 'increment' | 'decrement') => {
-    switch (type) {
-      case 'increment':
-        setCart((prevCart) =>
-          prevCart.map((product) =>
-            product.id === id
-              ? { ...product, quantity: product.quantity + 1 }
-              : product
-          )
-        )
-        return
-
-      case 'decrement':
-        setCart((prevCart) =>
-          prevCart.map((product) =>
-            product.id === id
-              ? { ...product, quantity: product.quantity - 1 }
-              : product
-          )
-        ) 
-        return
-    
-      default:
-        return
-    }
+    const action = type === 'increment' ? 1 : -1
+  
+    setCart((prevCart) =>
+      prevCart.map((product) =>
+        product.id === id
+          ? {
+              ...product,
+              quantity: Math.max(1, product.quantity + action)
+            }
+          : product
+      )
+    )
   }
-
+  
   return (
     <CartContext.Provider value={{ cart, addProduct, isInCart, handleQuantity }}>
       {children}
