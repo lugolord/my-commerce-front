@@ -1,21 +1,30 @@
 import { Product } from '@/types/api'
 import { toast } from 'sonner'
 import { useCart } from '@/hooks/useCart'
+import { CircleAlert, CircleCheck } from 'lucide-react'
 import ProducDetailCarousel from './ProductDetailCarousel'
 import ProductDetailCounter from './ProductDetailCounter'
 
 function ProductDetail ({ product } : { product: Product }) {
   const { addProduct, isInCart } = useCart()
 
+  const showToast = (
+    msg: string, 
+    color: string, 
+    Icon: React.ComponentType<{color: string}>
+  ) => {
+    toast(product.title, {
+      description: msg,
+      richColors: true,
+      icon: <Icon color={color} />,
+    })
+  }
+
   const handleAdd = (q: number) => {
     if (isInCart(product.id)) {
-      alert('el producto ya esta en el carrito, puedes aumentar la cantida yendo a tu carrito')
+      showToast("Ya esta en el carrito", '#F59E0B', CircleAlert)
     } else {
-      toast(product.title, {
-        description: "Se ha agregado al carrito",
-        richColors: true
-      })
-  
+      showToast("Se ha agregado al carrito", "green", CircleCheck)
       addProduct({ ...product, quantity: q })
     }
   }
