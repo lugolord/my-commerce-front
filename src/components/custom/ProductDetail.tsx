@@ -39,7 +39,7 @@ function ProductDetail ({ product } : { product: Product }) {
           <p>{product?.stock ? 'In stock 🟢' : 'No stock 🔴'}</p>
         </div>
         <p>{product?.description}</p>
-        <ProductDetailCounter handleAdd={handleAdd} />
+        <ProductDetailCounter handleAdd={handleAdd} disabled={product.stock === 0} />
       </div>
     </div>
   )

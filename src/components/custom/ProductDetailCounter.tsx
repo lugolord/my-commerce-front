@@ -3,9 +3,10 @@ import { useState } from 'react'
 
 type Props = {
   handleAdd: (q: number) => void
+  disabled: boolean
 }
 
-function ProductDetailCounter ({ handleAdd } : Props) {
+function ProductDetailCounter ({ handleAdd, disabled } : Props) {
   const [quantity, setQuantity] = useState(1)
 
   return (
@@ -16,8 +17,9 @@ function ProductDetailCounter ({ handleAdd } : Props) {
         min={1}
         value={quantity}
         onChange={() => setQuantity(quantity + 1)}
+        disabled={disabled}
       />
-      <Button onClick={() => handleAdd(quantity)}>add to cart</Button>
+      <Button onClick={() => handleAdd(quantity)} disabled={disabled}>add to cart</Button>
     </div>
   )
 }
