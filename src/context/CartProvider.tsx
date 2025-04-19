@@ -26,7 +26,10 @@ function CartProvider ({ children } : { children: React.ReactNode }) {
     )
   }
 
-  const calculateSubtotal = () => cart.reduce((total, item) => total + item.price * item.quantity, 0)
+  const calculateSubtotal = () => {
+    const subtotal = cart.reduce((total, item) => total + item.price * item.quantity, 0)
+    return Number(subtotal.toFixed(2))
+  }
 
   const calculateTotal = () => {
     const costoEnvio = 0
@@ -34,7 +37,7 @@ function CartProvider ({ children } : { children: React.ReactNode }) {
     const subTotal = calculateSubtotal()
     const total = costoEnvio + descuentos + subTotal
     
-    return total
+    return Number(total.toFixed(2))
   }
 
   const calculateCartQuantity = () => cart.reduce((total, item) => total + item.quantity, 0)
