@@ -24,8 +24,10 @@ function ProductDetail ({ product } : { product: Product }) {
     if (isInCart(product.id)) {
       showToast("Ya esta en el carrito", '#F59E0B', CircleAlert)
     } else {
-      showToast("Se ha agregado al carrito", "green", CircleCheck)
-      addProduct({ ...product, quantity: q })
+      if (q > 0) {
+        addProduct({ ...product, quantity: q })
+        showToast("Se ha agregado al carrito", "green", CircleCheck)
+      }
     }
   }
 

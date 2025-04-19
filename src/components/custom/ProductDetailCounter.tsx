@@ -16,7 +16,7 @@ function ProductDetailCounter ({ handleAdd, disabled } : Props) {
         className='border p-1 mb-2 rounded text-center' 
         min={1}
         value={quantity}
-        onChange={() => setQuantity(quantity + 1)}
+        onChange={(e) => setQuantity(e.target.valueAsNumber)}
         disabled={disabled}
       />
       <Button onClick={() => handleAdd(quantity)} disabled={disabled}>add to cart</Button>
