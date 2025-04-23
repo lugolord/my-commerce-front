@@ -36,7 +36,7 @@ function ProductDetail ({ product } : { product: Product }) {
       <ProducDetailCarousel images={product?.images} />
       <div className='h-[80%] w-[90%] justify-self-start flex flex-col justify-between'>
         <div>
-          <h2>{product?.title}</h2>
+          <h2 className='text-2xl'>{product?.title}</h2>
           <p>{product?.brand}</p>
           <p>{product?.stock ? 'In stock 🟢' : 'No stock 🔴'}</p>
         </div>

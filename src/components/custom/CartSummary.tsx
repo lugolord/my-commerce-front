@@ -33,7 +33,7 @@ function CartSummary () {
       <p>Envio: <span className='font-bold'>Gratis 🆓</span></p>
       <p>Total a pagar: <span className='font-bold'>{calculateTotal()}</span></p>
       <form onSubmit={handleCheckout}>
-        <Button type='submit'>finalizar compra 🎉</Button>
+        <Button type='submit' className='w-full'>finalizar compra 🎉</Button>
       </form>
     </div>
   )
