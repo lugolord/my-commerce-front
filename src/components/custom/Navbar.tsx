@@ -15,7 +15,7 @@ function Navbar () {
   const navigate = useNavigate()
 
   return (
-    <header className='flex items-center justify-around border-b-1 p-2 sticky top-0 z-20 bg-white'>
+    <header className='flex items-center justify-around border-b-1 p-2 sticky top-0 z-20'>
       <h1 onClick={() => navigate('/')} className='cursor-pointer'>my commerce</h1>
       <NavigationMenu>
         <NavigationMenuList className='gap-3'>
