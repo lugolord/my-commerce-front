@@ -1,9 +1,14 @@
 import { Product } from '@/types/api'
 import { CartContext } from './CartContext'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function CartProvider ({ children } : { children: React.ReactNode }) {
-  const [cart, setCart] = useState<Product[]>([])
+  const localCart = JSON.parse(localStorage.getItem('cart') || '[]')
+  const [cart, setCart] = useState<Product[]>(localCart || [])
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart))
+  }, [cart])
 
   const isInCart = (id: number) => cart.some(prod => prod.id === id)
 
