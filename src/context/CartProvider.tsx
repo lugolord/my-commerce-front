@@ -12,6 +12,8 @@ function CartProvider ({ children } : { children: React.ReactNode }) {
 
   const isInCart = (id: number) => cart.some(prod => prod.id === id)
 
+  const clearCart = () => setCart([])
+
   const addProduct = (product: Product) => setCart([...cart, product])
 
   const removeFromCart = (id: number) => setCart((prev) => prev.filter(prod => prod.id !== id))
@@ -55,7 +57,8 @@ function CartProvider ({ children } : { children: React.ReactNode }) {
     removeFromCart,
     calculateSubtotal,
     calculateTotal,
-    calculateCartQuantity
+    calculateCartQuantity,
+    clearCart
   }
   
   return (
