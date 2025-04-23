@@ -20,7 +20,7 @@ function Navbar () {
       <NavigationMenu>
         <NavigationMenuList className='gap-3'>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>categorias</NavigationMenuTrigger>
+            <NavigationMenuTrigger className='cursor-pointer'>categories</NavigationMenuTrigger>
             <NavigationMenuContent>
               <div className='w-80 flex flex-wrap'>
                 {categories.map(category => (

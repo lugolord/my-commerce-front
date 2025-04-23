@@ -10,7 +10,7 @@ function CartWidget () {
 
   return (
     <NavigationMenuItem>
-      <Button variant='outline' onClick={() => navigate('/cart')}>
+      <Button variant='secondary' className='cursor-pointer' onClick={() => navigate('/cart')}>
         cart <ShoppingCart /> {calculateCartQuantity()}
       </Button>
     </NavigationMenuItem>
