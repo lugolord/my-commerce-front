@@ -35,7 +35,6 @@ function Navbar () {
               </div>
             </NavigationMenuContent>
           </NavigationMenuItem>
-          <NavigationMenuItem>login</NavigationMenuItem>
           <CartWidget />
         </NavigationMenuList>
       </NavigationMenu>

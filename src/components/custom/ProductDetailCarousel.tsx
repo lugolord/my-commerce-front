@@ -18,7 +18,7 @@ function ProducDetailCarousel ({ images } : { images: string[] | undefined }) {
             <div className="p-1">
               <Card>
                 <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <img src={image} alt="" />
+                  <img src={image} alt="" className='max-h-80' />
                 </CardContent>
               </Card>
             </div>
