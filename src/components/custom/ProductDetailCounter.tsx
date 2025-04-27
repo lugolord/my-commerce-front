@@ -4,9 +4,10 @@ import { useState } from 'react'
 type Props = {
   handleAdd: (q: number) => void
   disabled: boolean
+  stock: number
 }
 
-function ProductDetailCounter ({ handleAdd, disabled } : Props) {
+function ProductDetailCounter ({ handleAdd, disabled, stock } : Props) {
   const [quantity, setQuantity] = useState(1)
 
   return (
@@ -15,6 +16,7 @@ function ProductDetailCounter ({ handleAdd, disabled } : Props) {
         type="number" 
         className='border p-1 mb-2 rounded text-center' 
         min={1}
+        max={stock}
         value={quantity}
         onChange={(e) => setQuantity(e.target.valueAsNumber)}
         disabled={disabled}

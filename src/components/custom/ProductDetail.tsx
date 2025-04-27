@@ -38,10 +38,10 @@ function ProductDetail ({ product } : { product: Product }) {
         <div>
           <h2 className='text-2xl'>{product?.title}</h2>
           <p>{product?.brand}</p>
-          <p>{product?.stock ? 'In stock 🟢' : 'No stock 🔴'}</p>
+          <p>{product?.stock ? `${product.stock} in stock 🟢` : 'No stock 🔴'}</p>
         </div>
         <p>{product?.description}</p>
-        <ProductDetailCounter handleAdd={handleAdd} disabled={product.stock === 0} />
+        <ProductDetailCounter handleAdd={handleAdd} disabled={product.stock === 0} stock={product.stock} />
       </div>
     </div>
   )
