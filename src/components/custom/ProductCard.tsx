@@ -17,7 +17,7 @@ function ProductCard ({ prod } : { prod: Product }) {
       <CardHeader>
         <CardTitle>{prod.title}</CardTitle>
         <AspectRatio ratio={4/5}>
-          <img src={prod.thumbnail} alt="" loading='lazy' />
+          <img src={prod.thumbnail} alt="" loading='lazy' className='bg-black rounded mt-3' />
         </AspectRatio>
       </CardHeader>
       <CardContent className='flex justify-around gap-3'>
