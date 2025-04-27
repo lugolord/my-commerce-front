@@ -23,11 +23,13 @@ function ProductDetail ({ product } : { product: Product }) {
   const handleAdd = (q: number) => {
     if (isInCart(product.id)) {
       showToast("Ya esta en el carrito", '#F59E0B', CircleAlert)
-    } else {
-      if (q > 0) {
-        addProduct({ ...product, quantity: q })
-        showToast("Se ha agregado al carrito", "green", CircleCheck)
-      }
+    } 
+    else if (q > 0 && q <= product.stock) {
+      addProduct({ ...product, quantity: q })
+      showToast("Se ha agregado al carrito", "green", CircleCheck)
+    }
+    else if (q > product.stock) {
+      showToast("La cantidad excede al stock", '#f40b07', CircleAlert)
     }
   }
 
