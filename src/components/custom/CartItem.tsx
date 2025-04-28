@@ -15,13 +15,13 @@ function CartItem ({ prod } : { prod: Product }) {
         <p className='flex-1'>{prod.quantity}</p>
         <Button 
           className='flex-1' 
-          onClick={() => handleQuantity(prod.id, 'increment')}
+          onClick={() => handleQuantity(prod, 'increment')}
         >
           +
         </Button>
         <Button 
           className='flex-1' 
-          onClick={() => handleQuantity(prod.id, 'decrement')}
+          onClick={() => handleQuantity(prod, 'decrement')}
         >
           -
         </Button>

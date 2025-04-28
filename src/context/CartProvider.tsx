@@ -18,20 +18,23 @@ function CartProvider ({ children } : { children: React.ReactNode }) {
 
   const removeFromCart = (id: number) => setCart((prev) => prev.filter(prod => prod.id !== id))
 
-  const handleQuantity = (id: number, type: 'increment' | 'decrement') => {
+  const handleQuantity = (product: Product, type: 'increment' | 'decrement') => {
     const action = type === 'increment' ? 1 : -1
-  
-    setCart((prevCart) =>
-      prevCart.map((product) =>
-        product.id === id
-          ? {
-              ...product,
-              quantity: Math.max(1, product.quantity + action)
-            }
-          : product
-      )
-    )
-  }
+
+    const updateCart = (item: Product) => {
+      if (item.id !== product.id) return item
+
+      const newQuantity = item.quantity + action
+      const clampedQuantity = Math.min(Math.max(1, newQuantity), product.stock)
+
+      return {
+        ...item,
+        quantity: clampedQuantity,
+      }
+    }
+
+    setCart(prevCart => prevCart.map(updateCart))
+  }  
 
   const calculateSubtotal = () => {
     const subtotal = cart.reduce((total, item) => total + item.price * item.quantity, 0)

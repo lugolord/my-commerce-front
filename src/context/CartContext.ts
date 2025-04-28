@@ -5,7 +5,7 @@ type CartContextType = {
   cart: Product[]
   addProduct: (product: Product) => void
   isInCart: (id: number) => boolean
-  handleQuantity: (id: number, type: 'increment' | 'decrement') => void
+  handleQuantity: (product: Product, type: 'increment' | 'decrement') => void
   removeFromCart: (id: number) => void
   calculateSubtotal: () => number
   calculateTotal: () => number
