@@ -1,6 +1,6 @@
 import { CircleX } from 'lucide-react'
-import { Button } from '../ui/button'
-import { Separator } from '../ui/separator'
+import { Button } from '../../ui/button'
+import { Separator } from '../../ui/separator'
 import { Product } from '@/types/api'
 import { useCart } from '@/hooks/useCart'
 

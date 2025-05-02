@@ -1,7 +1,7 @@
 import { Product } from '@/types/api'
 import ProductsLayout from './ProductsLayout'
-import ProductCard from './ProductCard'
-import CardsPlaceholder from './CardsPlaceholder'
+import ProductCard from '../ProductCard'
+import CardsPlaceholder from '../CardsPlaceholder'
 
 function ProductsList ({ products } : { products: Product[] }) {
   if (!products.length) {

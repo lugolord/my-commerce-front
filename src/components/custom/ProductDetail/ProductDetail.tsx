@@ -3,7 +3,7 @@ import { toast } from 'sonner'
 import { useCart } from '@/hooks/useCart'
 import { CircleAlert, CircleCheck } from 'lucide-react'
 import ProducDetailCarousel from './ProductDetailCarousel'
-import ProductDetailCounter from './ProductDetailCounter'
+import ProductDetailCounter from './ProductDetailContainer'
 
 function ProductDetail ({ product } : { product: Product }) {
   const { addProduct, isInCart } = useCart()

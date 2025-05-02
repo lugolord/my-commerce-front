@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router"
-import Navbar from '../components/custom/Navbar'
-import ProductsContainer from '../components/custom/ProductsContainer'
-import ProductDetailContainer from '../components/custom/ProductDetailContainer'
-import CartContainer from '@/components/custom/CartContainer'
+import Navbar from '../components/custom/Navbar/Navbar'
+import ProductsContainer from '../components/custom/Products/ProductsContainer'
+import ProductDetailContainer from '../components/custom/ProductDetail/ProductDetailContainer'
+import CartContainer from '@/components/custom/Cart/CartContainer'
 import OrderSuccess from '@/components/custom/OrderSuccess'
 
 function MainRouter () {

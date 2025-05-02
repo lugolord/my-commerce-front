@@ -1,5 +1,5 @@
 import { Skeleton } from '../ui/skeleton'
-import ProductsLayout from './ProductsLayout'
+import ProductsLayout from './Products/ProductsLayout'
 
 const placeholders = ['','','', '','', '', '', '']
 

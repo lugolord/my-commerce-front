@@ -1,5 +1,5 @@
-import { Button } from '../ui/button'
-import { NavigationMenuItem } from '../ui/navigation-menu'
+import { Button } from '../../ui/button'
+import { NavigationMenuItem } from '../../ui/navigation-menu'
 import { useNavigate } from 'react-router'
 import { useCart } from '@/hooks/useCart'
 import { ShoppingCart } from 'lucide-react'

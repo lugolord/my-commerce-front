@@ -1,5 +1,5 @@
-import { Button } from '../ui/button'
-import { Skeleton } from '../ui/skeleton'
+import { Button } from '../../ui/button'
+import { Skeleton } from '../../ui/skeleton'
 import ProducDetailCarousel from './ProductDetailCarousel'
 
 function ProductDetailSkeleton () {
