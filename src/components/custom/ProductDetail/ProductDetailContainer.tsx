@@ -18,11 +18,11 @@ function ProductDetailContainer () {
       })
   }, [id])
 
-  if (!product) {
-    return <ProductDetailSkeleton />
-  }
-
-  return <ProductDetail product={product} />
+  return (
+    <>
+      {!product ? <ProductDetailSkeleton /> : <ProductDetail product={product} />}
+    </>
+  )
 }
 
 export default ProductDetailContainer

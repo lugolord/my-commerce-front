@@ -12,7 +12,7 @@ function CartContainer () {
   }
 
   return (
-    <div className='h-screen flex items-center justify-center gap-3'>
+    <div className='h-screen flex flex-col lg:flex-row items-center lg:justify-center lg:gap-3'>
       <CartList cart={cart} />
       <CartSummary />
     </div>

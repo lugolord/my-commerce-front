@@ -26,7 +26,7 @@ function CartSummary () {
   }
 
   return (
-    <div className='w-[30%] h-96 p-3 flex flex-col justify-between border-s-2'>
+    <div className='w-[90%] lg:w-[30%] h-96 p-3 flex flex-col justify-between lg:border-s-2'>
       <h2 className='text-2xl underline'>Resumen de la compra:</h2>
       <p>Subtotal: <span className='font-bold'>{calculateSubtotal()}</span></p>
       <p>Descuentos: <span className='font-bold'>0</span></p>

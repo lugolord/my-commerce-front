@@ -3,7 +3,7 @@ import { toast } from 'sonner'
 import { useCart } from '@/hooks/useCart'
 import { CircleAlert, CircleCheck } from 'lucide-react'
 import ProducDetailCarousel from './ProductDetailCarousel'
-import ProductDetailCounter from './ProductDetailContainer'
+import ProductDetailCounter from './ProductDetailCounter'
 
 function ProductDetail ({ product } : { product: Product }) {
   const { addProduct, isInCart } = useCart()
@@ -34,15 +34,15 @@ function ProductDetail ({ product } : { product: Product }) {
   }
 
   return (
-    <div className='grid grid-cols-2 place-items-center justify-items-center h-[80vh]'>
+    <div className='grid place-items-center lg:grid-cols-2 lg:place-items-center lg:justify-items-center lg:h-[80vh] mt-5 mb-20 md:mb-0'>
       <ProducDetailCarousel images={product?.images} />
-      <div className='h-[80%] w-[90%] justify-self-start flex flex-col justify-between'>
-        <div>
+      <div className='h-[80%] w-[90%] lg:justify-self-start flex flex-col justify-between'>
+        <div className='mb-5 lg:mb-0'>
           <h2 className='text-2xl'>{product?.title}</h2>
           <p>{product?.brand}</p>
           <p>{product?.stock ? `${product.stock} in stock 🟢` : 'No stock 🔴'}</p>
         </div>
-        <p>{product?.description}</p>
+        <p className='mb-5 lg:mb-0'>{product?.description}</p>
         <ProductDetailCounter handleAdd={handleAdd} disabled={product.stock === 0} stock={product.stock} />
       </div>
     </div>
