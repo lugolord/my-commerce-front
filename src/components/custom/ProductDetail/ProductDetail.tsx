@@ -34,15 +34,15 @@ function ProductDetail ({ product } : { product: Product }) {
   }
 
   return (
-    <div className='grid place-items-center lg:grid-cols-2 lg:place-items-center lg:justify-items-center lg:h-[80vh] mt-5 mb-20 md:mb-0'>
+    <div className='grid place-items-center lg:grid-cols-2 lg:place-items-center lg:justify-items-center lg:h-[80vh] mt-5 mb-10 md:mb-0'>
       <ProducDetailCarousel images={product?.images} />
-      <div className='h-[80%] w-[90%] lg:justify-self-start flex flex-col justify-between'>
-        <div className='mb-5 lg:mb-0'>
+      <div className='w-[70%] md:w-[50%] lg:w-[70%] lg:justify-self-start flex flex-col justify-between h-[440px]'>
+        <div className='lg:mb-5'>
           <h2 className='text-2xl'>{product?.title}</h2>
           <p>{product?.brand}</p>
           <p>{product?.stock ? `${product.stock} in stock 🟢` : 'No stock 🔴'}</p>
         </div>
-        <p className='mb-5 lg:mb-0'>{product?.description}</p>
+        <p className='mb-5 mf lg:mb-5'>{product?.description}</p>
         <ProductDetailCounter handleAdd={handleAdd} disabled={product.stock === 0} stock={product.stock} />
       </div>
     </div>

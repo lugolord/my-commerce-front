@@ -11,10 +11,10 @@ function ProductDetailCounter ({ handleAdd, disabled, stock } : Props) {
   const [quantity, setQuantity] = useState(1)
 
   return (
-    <div className='flex flex-col items-center'>
+    <div className='flex flex-col items-center mb-5'>
       <input 
         type="number" 
-        className='border p-1 mb-2 rounded text-center w-[90%] md:w-[100%]' 
+        className='border p-1 mb-2 rounded text-center w-[100%] md:w-[100%]' 
         min={1}
         max={stock}
         value={quantity}
@@ -24,7 +24,7 @@ function ProductDetailCounter ({ handleAdd, disabled, stock } : Props) {
       <Button 
         onClick={() => handleAdd(quantity)} 
         disabled={disabled}
-        className='w-[90%] md:w-[100%]'
+        className='w-[100%] md:w-[100%]'
       >
         add to cart
       </Button>
