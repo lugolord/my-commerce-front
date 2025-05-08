@@ -1,54 +1,52 @@
-# React + TypeScript + Vite
+# My Commerce Front
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación de ecommerce desarrollada con **React** y **TypeScript**. Permite visualizar productos, filtrarlos por categorías, paginar resultados, ver detalles, agregarlos al carrito y realizar compras a través de Stripe.
 
-Currently, two official plugins are available:
+## Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Mostrar listado de productos desde la API de [DummyJSON](https://dummyjson.com/docs/products).
+- Filtro por categorías.
+- Paginación de productos.
+- Vista detallada de cada producto.
+- Carrito de compras:
+  - Agregar y eliminar productos.
+  - Aumentar o disminuir cantidad.
+  - Ver el total de la compra.
+- Finalizar compra con pasarela de pago Stripe.
+- Diseño responsivo y moderno con TailwindCSS y Radix UI.
+- Animaciones suaves usando `tw-animate-css`.
 
-## Expanding the ESLint configuration
+## Tecnologías y Librerías
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [React Router](https://reactrouter.com/en/main)
+- [TailwindCSS](https://tailwindcss.com/)
+- [Radix UI](https://www.radix-ui.com/docs/primitives/overview/introduction)
+- [Embla Carousel](https://www.embla-carousel.com/)
+- [Lucide Icons](https://lucide.dev/)
+- [Next Themes](https://github.com/pacocoursey/next-themes)
+- [Sonner (Toasts)](https://sonner.emilkowal.io/)
+- [class-variance-authority](https://cva.style/docs)
+- [clsx](https://github.com/lukeed/clsx)
+- [tailwind-merge](https://tailwind-merge.vercel.app/)
+- [tw-animate-css](https://www.npmjs.com/package/tw-animate-css)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## API de Productos
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Los datos se obtienen de la API pública:  
+👉 [https://dummyjson.com/docs/products](https://dummyjson.com/docs/products)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Pasarela de Pago
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Se utiliza Stripe Checkout mediante una API desarrollada en ExpressJS.  
+Repositorio del backend:  
+👉 [https://github.com/lugolord/my-commerce-server](https://github.com/lugolord/my-commerce-server)
+
+## Autor
+
+**Luis González**
+
+---
+
+¡Gracias por visitar este proyecto! 🚀
