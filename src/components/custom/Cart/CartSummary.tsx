@@ -8,7 +8,7 @@ function CartSummary () {
     e.preventDefault()
     
     try {
-      const response = await fetch('https://my-commerce-server.onrender.com/create-checkout-session', {
+      const response = await fetch('https://my-commerce-server.vercel.app/create-checkout-session', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
