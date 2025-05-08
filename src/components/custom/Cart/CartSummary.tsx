@@ -8,7 +8,7 @@ function CartSummary () {
     e.preventDefault()
     
     try {
-      const response = await fetch('http://localhost:4242/create-checkout-session', {
+      const response = await fetch('https://my-commerce-server.onrender.com/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
