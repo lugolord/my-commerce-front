@@ -14,7 +14,7 @@ function MainRouter () {
         <Route path='/category/:category' element={<ProductsContainer />} />
         <Route path='/products/:id' element={<ProductDetailContainer />} />
         <Route path='/cart' element={<CartContainer />} />
-        <Route path='/success/:id' element={<OrderSuccess />} />
+        <Route path='/success' element={<OrderSuccess />} />
       </Routes>
     </BrowserRouter>
   )
