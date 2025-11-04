@@ -1,8 +1,8 @@
-import { useParams, useNavigate } from 'react-router'
-import { CircleCheck } from 'lucide-react'
-import { Button } from '../ui/button'
-import { useEffect, useState } from 'react'
-import { useCart } from '@/hooks/useCart'
+// import { useParams, useNavigate } from 'react-router'
+// import { CircleCheck } from 'lucide-react'
+// import { Button } from '../ui/button'
+// import { useEffect, useState } from 'react'
+// import { useCart } from '@/hooks/useCart'
 
 function OrderSuccess () {
   // const [hasClearedCart, setHasClearedCart] = useState(false)
