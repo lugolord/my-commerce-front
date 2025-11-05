@@ -30,7 +30,8 @@ function OrderSuccess () {
     }
 
     chekcPaymentId()
-  }, [clearCart, navigate, paymentId])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [paymentId])
 
   const handleClick = () => navigate('/')
 
