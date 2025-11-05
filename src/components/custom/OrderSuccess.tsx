@@ -1,33 +1,47 @@
-// import { useParams, useNavigate } from 'react-router'
-// import { CircleCheck } from 'lucide-react'
-// import { Button } from '../ui/button'
-// import { useEffect, useState } from 'react'
-// import { useCart } from '@/hooks/useCart'
+import { useSearchParams, useNavigate } from 'react-router'
+import { CircleCheck } from 'lucide-react'
+import { Button } from '../ui/button'
+import { useEffect } from 'react'
+import { useCart } from '@/hooks/useCart'
 
 function OrderSuccess () {
   // const [hasClearedCart, setHasClearedCart] = useState(false)
   // const { id } = useParams()
-  // const { clearCart } = useCart()
-  // const navigate = useNavigate()
+  const { clearCart } = useCart()
+  const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
+  const paymentId = searchParams.get('payment_id')
 
-  // useEffect(() => {
-  //   if (!hasClearedCart) {
-  //     clearCart()
-  //     setHasClearedCart(true)
-  //   }
-  // }, [hasClearedCart, clearCart])
+  useEffect(() => {
+    const chekcPaymentId = async () => {
+      const res = await fetch('https://my-commerce-server.lugolord.deno.net/check-id', {
+        method:'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ payment_id: paymentId })
+      })
 
-  // const handleClick = () => navigate('/')
+      if (res.ok) {
+        clearCart()
+      } else {
+        navigate('/')
+      }
+    }
+
+    chekcPaymentId()
+  }, [clearCart, navigate, paymentId])
+
+  const handleClick = () => navigate('/')
 
   return (
-    // <div className='flex flex-col items-center justify-center gap-5 h-screen'>
-    //   <CircleCheck size={100} color='#47c536' />
-    //   <p className='text-2xl'>La compra se realizo con exito 😄</p>
-    //   <p className='text-2xl text-center'>El ID de tu orden es:</p>
-    //   <p className='text-2xl break-all px-10'>{id}</p>
-    //   <Button onClick={handleClick}>volver a los productos</Button>
-    // </div>
-    <h1>success</h1>
+    <div className='flex flex-col items-center justify-center gap-5 h-screen'>
+      <CircleCheck size={100} color='#47c536' />
+      <p className='text-2xl'>La compra se realizo con exito 😄</p>
+      <p className='text-2xl text-center'>El ID de tu orden es:</p>
+      <p className='text-2xl break-all px-10'>{paymentId}</p>
+      <Button onClick={handleClick}>volver a los productos</Button>
+    </div>
   )
 }
 
