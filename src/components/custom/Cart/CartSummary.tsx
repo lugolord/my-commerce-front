@@ -6,9 +6,10 @@ function CartSummary () {
   const [preferenceId, setPreferenceId] = useState(null)
   const { calculateSubtotal, calculateTotal, cart } = useCart()
 
-  initMercadoPago('APP_USR-c8381a73-ae1c-4d7e-818c-d8b27daf9fa5')
-
+  
   useEffect(() => {
+    initMercadoPago('APP_USR-c8381a73-ae1c-4d7e-818c-d8b27daf9fa5')
+    
     const createPreference = async () => {
       try {
         const response = await fetch('https://my-commerce-server.lugolord.deno.net/create-preference', {

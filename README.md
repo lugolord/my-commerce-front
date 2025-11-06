@@ -1,6 +1,6 @@
 # My Commerce Front
 
-Aplicación de ecommerce desarrollada con **React** y **TypeScript**. Permite visualizar productos, filtrarlos por categorías, paginar resultados, ver detalles, agregarlos al carrito y realizar compras a través de Stripe.
+Aplicación de ecommerce desarrollada con **React** y **TypeScript**. Permite visualizar productos, filtrarlos por categorías, paginar resultados, ver detalles, agregarlos al carrito y realizar compras a través de Mercado Pago.
 
 ## Características
 
@@ -12,7 +12,7 @@ Aplicación de ecommerce desarrollada con **React** y **TypeScript**. Permite vi
   - Agregar y eliminar productos.
   - Aumentar o disminuir cantidad.
   - Ver el total de la compra.
-- Finalizar compra con pasarela de pago Stripe.
+- Finalizar compra con pasarela de pago Mercado Pago.
 - Diseño responsivo y moderno con TailwindCSS y Radix UI.
 - Animaciones suaves usando `tw-animate-css`.
 
@@ -31,6 +31,7 @@ Aplicación de ecommerce desarrollada con **React** y **TypeScript**. Permite vi
 - [clsx](https://github.com/lukeed/clsx)
 - [tailwind-merge](https://tailwind-merge.vercel.app/)
 - [tw-animate-css](https://www.npmjs.com/package/tw-animate-css)
+- [Mercado Pago](https://www.mercadopago.com.ar/developers/es)
 
 ## API de Productos
 
@@ -39,7 +40,7 @@ Los datos se obtienen de la API pública:
 
 ## Pasarela de Pago
 
-Se utiliza Stripe Checkout mediante una API desarrollada en ExpressJS.  
+Se utiliza Checkout Pro de Mercado Pago mediante una API desarrollada en ExpressJS.  
 Repositorio del backend:  
 👉 [https://github.com/lugolord/my-commerce-server](https://github.com/lugolord/my-commerce-server)
 

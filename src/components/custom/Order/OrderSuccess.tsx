@@ -1,10 +1,12 @@
 import { useSearchParams, useNavigate } from 'react-router'
 import { CircleCheck } from 'lucide-react'
-import { Button } from '../ui/button'
-import { useEffect } from 'react'
+import { Button } from '../../ui/button'
+import { useEffect, useState } from 'react'
 import { useCart } from '@/hooks/useCart'
+import CheckOrder from './CheckOrder'
 
 function OrderSuccess () {
+  const [loading, setLoading] = useState(true)
   const { clearCart } = useCart()
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
@@ -24,6 +26,7 @@ function OrderSuccess () {
 
       if (data.ok) {
         clearCart()
+        setLoading(false)
       } else {
         navigate('/')
       }
@@ -35,6 +38,10 @@ function OrderSuccess () {
   }, [paymentId])
 
   const handleClick = () => navigate('/')
+
+  if (loading) {
+    return <CheckOrder />
+  }
 
   return (
     <div className='flex flex-col items-center justify-center gap-5 h-screen'>

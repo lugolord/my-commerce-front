@@ -1,7 +1,7 @@
 import MainRouter from './router/MainRouter'
 import { Toaster } from "@/components/ui/sonner"
 
-function App() {
+function App () {
   return (
     <>
       <MainRouter />
