@@ -5,11 +5,9 @@ import { useEffect } from 'react'
 import { useCart } from '@/hooks/useCart'
 
 function OrderSuccess () {
-  // const [hasClearedCart, setHasClearedCart] = useState(false)
-  // const { id } = useParams()
   const { clearCart } = useCart()
-  const navigate = useNavigate()
   const [searchParams] = useSearchParams()
+  const navigate = useNavigate()
   const paymentId = searchParams.get('payment_id')
 
   useEffect(() => {
@@ -22,7 +20,9 @@ function OrderSuccess () {
         body: JSON.stringify({ payment_id: paymentId })
       })
 
-      if (res.ok) {
+      const data = await res.json()
+
+      if (data.ok) {
         clearCart()
       } else {
         navigate('/')
@@ -30,6 +30,7 @@ function OrderSuccess () {
     }
 
     chekcPaymentId()
+   
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [paymentId])
 
