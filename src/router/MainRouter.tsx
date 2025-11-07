@@ -5,6 +5,7 @@ import ProductDetailContainer from '../components/custom/ProductDetail/ProductDe
 import CartContainer from '@/components/custom/Cart/CartContainer'
 import OrderSuccess from '@/components/custom/Order/OrderSuccess'
 import FailOrder from '@/components/custom/Order/FailOrder'
+import CheckoutContainer from '@/components/custom/Checkout/CheckoutContainer'
 
 function MainRouter () {
   return (
@@ -17,6 +18,7 @@ function MainRouter () {
         <Route path='/cart' element={<CartContainer />} />
         <Route path='/success' element={<OrderSuccess />} />
         <Route path='/fail' element={<FailOrder />} />
+        <Route path='/checkout' element={<CheckoutContainer />} />
       </Routes>
     </BrowserRouter>
   )
